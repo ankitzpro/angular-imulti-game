@@ -1,0 +1,44 @@
+<hr />
+<div class="row">
+  <div class="col-sm-6">
+    <h4>{{ i }}/{{ tot }}</h4>
+  </div>
+  <div class="col-sm-6 text-danger">
+    <h3>{{ seconds.toFixed(1) }}</h3>
+  </div>
+</div>
+
+<hr />
+<div
+  class="tphoto"
+  [@cardAnimator]="animationState"
+  (@cardAnimator.done)="resetAnimationState($event)"
+  (swipeleft)="startAnimation('swipeleft')"
+  (swiperight)="startAnimation('swiperight')"
+  (swipedown)="startAnimation('swipedown')"
+>
+  <div>{{ word1 }}</div>
+  <br />
+  <div>{{ word2 }}</div>
+</div>
+<hr />
+<div class="row">
+  <div style="width: 33.33%;">
+    <p>
+      Almost Same <br />
+      Click Left
+    </p>
+  </div>
+  <div style="width: 33.33%;">
+    <p>
+      Other <br />
+      Click Down
+    </p>
+  </div>
+  <div style="width: 33.33%;">
+    <p>
+      Almost Opposite <br />
+      Click Right
+    </p>
+  </div>
+</div>

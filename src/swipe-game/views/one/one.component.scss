@@ -1,0 +1,39 @@
+.d-flex {
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh - 30px);
+  padding: 40px;
+  @media (max-width: 600px) {
+    min-height: calc(100vh - 20px);
+    padding: 20px;
+  }
+}
+p {
+  color: #fff;
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0;
+}
+
+img {
+  width: auto;
+}
+
+button {
+  background: #ffffff;
+  box-shadow: 0px 2px 5px rgba(16, 16, 16, 0.25);
+  border-radius: 8px;
+  height: 45px;
+  font-size: 16px;
+  color: #176ede;
+  display: inline-flex;
+  width: 130px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  font-weight: 600;
+  i {
+    margin-left: 15px;
+  }
+}
+

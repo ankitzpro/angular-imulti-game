@@ -1,0 +1,113 @@
+.pdng {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh - 30px);
+  @media (max-width: 600px) {
+    padding: 15px;
+    min-height: calc(100vh - 20px);
+  }
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  div {
+    width: 72px;
+    height: 72px;
+    background: #ebf0fc;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 26px;
+    color: #176ede;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &:last-child {
+      background: #3b8524;
+      box-shadow: 0px 2px 5px rgba(59, 133, 36, 0.3);
+      color: #fff;
+    }
+    span {
+      font-size: 20px;
+      margin-top: 4px;
+    }
+  }
+}
+
+.number {
+  display: flex;
+  .list {
+    border-right: 1px solid rgba(189, 189, 189, 0.3);
+    width: 16.666%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &:last-child {
+      border-right: 0;
+    }
+    div {
+      width: 45px;
+      height: 45px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 20px;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .number_bg {
+      background: #BDBDBD;
+    }
+    .value_bg {
+      background: #ebf0fc;
+      color: #176ede;;
+    }
+    .slide_bg {
+      background: #176ede;
+      box-shadow: 0px 2px 5px rgba(26, 73, 186, 0.3);
+    }
+  }
+}
+
+.slide {
+  display: flex;
+  div {
+    width: 16.666%;
+  }
+  img {
+    width: 100%;
+    display: block;
+  }
+}
+
+.my_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  div {
+    background: #176ede;
+    box-shadow: 0px 2px 5px rgba(26, 73, 186, 0.3);
+    border-radius: 8px;
+    height: 60px;
+    width: 60px;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-right: 30px;
+    cursor: pointer;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
