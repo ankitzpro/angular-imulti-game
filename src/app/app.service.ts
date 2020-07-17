@@ -2,11 +2,11 @@ import { Injectable,Output,EventEmitter } from '@angular/core';
 import { MainService} from '../number-racer/main.service';
 import { MyserviceService} from '../swipe-game/myservice.service';
 import { BalloonService} from '../balloon-game/balloon.service';
-import { CalcService } from 'src/calc-game/calc.service';
-import { CardService } from 'src/memory-cards/card.service';
-import { StatementService } from 'src/statements-shapes/statement.service';
-import { SwitchService } from 'src/switch-game/switch.service';
-import { AccuracyService } from 'src/accuracy-game/accuracy.service';
+import { CalcService } from '../calc-game/calc.service';
+import { CardService } from '../memory-cards/card.service';
+import { StatementService } from '../statements-shapes/statement.service';
+import { SwitchService } from '../switch-game/switch.service';
+import { AccuracyService } from '../accuracy-game/accuracy.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class AppService {
   gamedata1='';
   gamedata2='';
   games = [
-  {'description':'Compare the 2 words and decide whether there meaning is almost the same, almost the opposite, or they have another relationship./n If they have the same meaning, Click left. For almost opposites, Click right. For all other words pairs, Click down','value':'Link Swipe'},
+  {'description':'Compare the 2 words and decide whether there meaning is almost the same, almost the opposite, or they have another relationship./n If they have thengula same meaning, Click left. For almost opposites, Click right. For all other words pairs, Click down','value':'Link Swipe'},
   {'description':'Use the Sequences in the middle to determine the correct reorder of the symbols to make the Upper row match the Lower row','value':'Switch Game'},
   {'description':'Solve the equation to collect the game point','value':'Digit Game'},
   {'description':'Collect the dropping numbers whose sum is equals to the number in the top right','value':'Number racer'},
