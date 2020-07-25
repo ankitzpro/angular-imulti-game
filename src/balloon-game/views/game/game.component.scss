@@ -12,7 +12,7 @@
 
 .label {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   color: #3b8524;
   font-size: 18px;
@@ -30,6 +30,7 @@
     background: #3b8524;
     box-shadow: 0px 2px 5px rgba(59, 133, 36, 0.3);
     color: #fff;
+    margin-left: 20px;
     // p {
     //   height: 30px;
     //   position: absolute;

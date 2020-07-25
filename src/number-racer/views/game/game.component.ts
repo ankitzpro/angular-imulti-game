@@ -49,7 +49,7 @@ export class GameComponent implements OnInit {
 
     var b =
       Math.floor(Math.random() * (this.sum - 1)) + this.service.rangestart;
-    if (this.service.level > 5)
+    if (this.service.level > 7)
       b =
         Math.floor(Math.random() * this.service.rangeend) +
         this.service.rangestart;
@@ -57,8 +57,8 @@ export class GameComponent implements OnInit {
       var g =
         Math.floor(Math.random() * this.service.rangeend) +
         this.service.rangestart;
-      if (this.service.level > 5)
-        b =
+      if (this.service.level > 7)
+        g =
           Math.floor(Math.random() * this.service.rangeend) -
           this.service.rangestart;
       this.arr.push(g);

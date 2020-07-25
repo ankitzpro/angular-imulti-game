@@ -17,6 +17,10 @@
       </div>
     </div>
 
+    <div class="quest">
+      Return the exact change
+    </div>
+
     <div class="cptn">
       <div>
         Billing Amount <span>₹ {{ billing_amount }}</span>
@@ -108,8 +112,11 @@
     </div>
   </div>
 
+
   <div class="btn_box">
-    <a
+    <a class="clear" href="javascript:void(0)" (click)="refillNotes()">Clear</a>
+    <a href="javascript:void(0)" (click)="checkAnswer(userAnswer)">Submit</a>
+    <!-- <a
       class="fa fa-times"
       href="javascript:void(0)"
       (click)="refillNotes()"
@@ -118,8 +125,9 @@
       href="javascript:void(0)"
       class="fa fa-check"
       (click)="checkAnswer(userAnswer)"
-    ></a>
+    ></a> -->
   </div>
+
 </div>
 <!-- <notifier-container></notifier-container> -->
 

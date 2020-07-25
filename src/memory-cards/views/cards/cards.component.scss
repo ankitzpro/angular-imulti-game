@@ -1,5 +1,5 @@
 .pdng {
-  padding: 30px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -64,6 +64,7 @@
     justify-content: center;
     position: relative;
     background: #f8e8e7;
+    margin-left: 20px;
     // p {
     //   height: 30px;
     //   position: absolute;
@@ -133,26 +134,41 @@
   &.start {
     color: #3b8524;
     line-height: 21px;
-    text-align: left;
+    flex-direction: column;
+    span {
+      display: block;
+      margin-top: 10px;
+    }
     div {
       background: #e3efe4;
       color: #3b8524;
       font-size: 18px;
       box-shadow: 0px 0px 10px rgba(59, 133, 36, 0.1);
       border: 1px solid rgba(59, 133, 36, 0.15);
+      width: 90px;
+      margin-left: 0;
     }
   }
   &.wait {
     color: #ffa300;
+    line-height: 21px;
+    flex-direction: column;
+    span {
+      display: block;
+      margin-top: 10px;
+    }
     div {
       background: #fef2e0;
       color: #ffa300;
       font-size: 18px;
       box-shadow: 0px 0px 10px rgba(255, 163, 0, 0.1);
       border: 1px solid rgba(255, 163, 0, 0.15);
+      width: 90px;
+      margin-left: 0;
     }
   }
   &.time {
+    justify-content: flex-end;
     div {
       background: #f8e8e7;
       color: #bc271a;
@@ -181,7 +197,7 @@
     justify-content: center;
     font-size: 22px;
     color: #d3e5ff;
-    &:hover {
+    &.btn-hover:hover {
       background: #176ede;
       color: #176ede;
       transform: scale(1.1);

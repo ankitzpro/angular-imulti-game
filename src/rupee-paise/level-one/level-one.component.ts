@@ -170,10 +170,10 @@ export class LevelOneComponent implements OnInit {
             this.myfunction();
             this.notifier.notify("warning","Not Attempted");
             this.countDown();
-            this.seconds=2000;
-            // this.seconds=20;
-        }, 2000000);
-        // }, 20000);
+            // this.seconds=2000;
+            this.seconds=20;
+        // }, 2000000);
+        }, 20000);
       }
   myfunction(){clearInterval(this.timerDownId);}
 

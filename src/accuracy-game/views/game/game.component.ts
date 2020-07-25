@@ -47,8 +47,7 @@ export class GameComponent  {
     console.log(this.numstring);
   }
   insertNum(a) {
-    var b= (<HTMLInputElement>a.target).value;
-    this.numstring = b;
+    this.numstring = a;
   }
 
   private countDown(): void {
