@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppComponent } from 'src/app/app.component';
+import { AppComponent } from '../app/app.component';
 import { LevelOneComponent } from './level-one/level-one.component';
 import { LevelTwoComponent } from './level-two/level-two.component';
 import { LevelThreeComponent } from './level-three/level-three.component';
