@@ -81,7 +81,7 @@ export class GameComponent {
     this.service.clearTimer();
 
     if (ans == this.randpos) {
-      this.service.scoreCalc('Level Passed \n Correct Answer'); 
+      this.service.scoreCalc('Level Passed \n Correct Answer');
       this.service.score++;
       this.service.totanswers.push(1);
       this.service.changeCompo('Timer');
@@ -102,7 +102,7 @@ export class GameComponent {
 
         this.service.changeCompo('Timer');
       }
-      //}, 100000000000);
+      // }, 100000000000);
      }, 1000);
   }
 }

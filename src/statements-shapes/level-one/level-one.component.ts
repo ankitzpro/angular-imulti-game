@@ -31,7 +31,7 @@ export class LevelOneComponent implements OnInit {
     notifierService: NotifierService) {
       this.notifier = notifierService;
     }
-    
+
   ngOnInit() {
     this.getQuestion();
   }
@@ -64,7 +64,7 @@ export class LevelOneComponent implements OnInit {
         this.service.totanswers.push(1);
         this.score = this.service.l1_score;
       }
-      
+
       this.service.changeCompo('Timer');
   }
 
@@ -99,7 +99,7 @@ this.countDown();
       this.startCountDown -= 1;
       this.startCountDown=this.startCountDown;
       if (this.startCountDown === 0) {
-        
+
         this.startCountDown=undefined;
         this.showQuestion=true;
         clearInterval(this.countDownId);
