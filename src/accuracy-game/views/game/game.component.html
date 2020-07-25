@@ -34,7 +34,7 @@
           [(ngModel)]="numstring"
           placeholder="How much?"
           numbersOnly
-          (input)="insertNum($event)"
+          (input)="insertNum($event.target.value)"
         />
         <span>%</span>
       </div>
