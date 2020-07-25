@@ -1,8 +1,12 @@
 <div class="pdng">
   <div class="label">
-    <div>
+    <!-- <div>
       15<span>/{{ level }}</span>
-    </div>
+      <p>
+        Level
+      </p>
+    </div> -->
+    <strong>Target sum</strong>
     <div>
       {{ sum }}
     </div>
@@ -46,39 +50,39 @@
         <h1 hidden>A</h1>
       </div>
       <div>
-        <!-- <i *ngIf="pointer == 1" class="fa fa-hand-o-up fa-3x"></i> -->
-        <img
+        <div class="icon" *ngIf="pointer == 1"></div>
+        <!-- <img
           *ngIf="pointer == 1"
           src="https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/number-race-icon.svg"
-        />
+        /> -->
       </div>
       <div>
-        <!-- <i *ngIf="pointer == 2" class="fa fa-hand-o-up fa-3x"></i> -->
-        <img
+        <div class="icon" *ngIf="pointer == 2"></div>
+        <!-- <img
           *ngIf="pointer == 2"
           src="https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/number-race-icon.svg"
-        />
+        /> -->
       </div>
       <div>
-        <!-- <i *ngIf="pointer == 3" class="fa fa-hand-o-up fa-3x"></i> -->
-        <img
+        <div class="icon" *ngIf="pointer == 3"></div>
+        <!-- <img
           *ngIf="pointer == 3"
           src="https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/number-race-icon.svg"
-        />
+        /> -->
       </div>
       <div>
-        <!-- <i *ngIf="pointer == 4" class="fa fa-hand-o-up fa-3x"></i> -->
-        <img
+        <div class="icon" *ngIf="pointer == 4"></div>
+        <!-- <img
           *ngIf="pointer == 4"
           src="https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/number-race-icon.svg"
-        />
+        /> -->
       </div>
       <div></div>
     </div>
 
     <div class="my_btn">
-      <div class="fa fa-long-arrow-left" (click)="onClick('left')"></div>
-      <div class="fa fa-long-arrow-right" (click)="onClick('right')"></div>
+      <div class="fa fa-long-arrow-left waves-effect" (click)="onClick('left')"></div>
+      <div class="fa fa-long-arrow-right waves-effect" (click)="onClick('right')"></div>
     </div>
   </div>
 </div>

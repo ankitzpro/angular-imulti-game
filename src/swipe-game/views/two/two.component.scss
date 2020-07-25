@@ -57,17 +57,26 @@ img {
     background: #ffffff;
     box-shadow: 0px 2px 5px rgba(16, 16, 16, 0.25);
     border-radius: 8px;
-    height: 60px;
-    width: 60px;
+    height: 65px;
+    width: 65px;
     color: #176ede;
-    margin: 0 10px;
+    margin: 0 12px;
     border: 0;
     font-size: 30px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    transition: 0.3s;
     &.fa-long-arrow-down {
       margin-top: 30px;
     }
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      box-shadow: 0px 0px 10px rgba(16, 16, 16, 0.5);
+      transform: scale(1.1);
+    }
   }
 }
+

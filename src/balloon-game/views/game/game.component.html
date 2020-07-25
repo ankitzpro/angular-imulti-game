@@ -1,30 +1,96 @@
 <div class="pdng">
   <div class="label">
-    <div>
-      10<span>/{{ level }}</span>
-    </div>
+    <!-- <div>
+      30<span>/{{ level }}</span>
+      <p>Level</p>
+    </div> -->
     <div>
       {{ localscore }}
+      <p>Score</p>
     </div>
   </div>
 
-    <div class="imgdata">
-      <span
+  <div class="imgdata">
+    <div
+      *ngIf="randomcolor == 'blue'"
+      class="balloon"
+      [hidden]="boomhide"
+      [ngStyle]="{
+        'width.px': wid,
+        'height.px': wid
+      }"
+      style="
+        background-image: url(https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/balloon-blue.svg);
+      "
+    ></div>
+    <div
+      *ngIf="randomcolor == 'green'"
+      class="balloon"
+      [hidden]="boomhide"
+      [ngStyle]="{
+        'width.px': wid,
+        'height.px': wid
+      }"
+      style="
+        background-image: url(https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/balloon-green.svg);
+      "
+    ></div>
+    <div
+      *ngIf="randomcolor == 'red'"
+      class="balloon"
+      [hidden]="boomhide"
+      [ngStyle]="{
+        'width.px': wid,
+        'height.px': wid
+      }"
+      style="
+        background-image: url(https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/balloon-red.svg);
+      "
+    ></div>
+    <!-- <img
+      *ngIf="randomcolor == 'blue'"
+      [hidden]="boomhide"
+      [ngStyle]="{
+        'width.px': wid
+      }"
+      src="https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/balloon-blue.svg"
+      alt="balloon"
+    />
+    <img
+      *ngIf="randomcolor == 'green'"
+      [hidden]="boomhide"
+      [ngStyle]="{
+        'width.px': wid
+      }"
+      src="https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/balloon-green.svg"
+      alt="balloon"
+    />
+    <img
+      *ngIf="randomcolor == 'red'"
+      [hidden]="boomhide"
+      [ngStyle]="{
+        'width.px': wid
+      }"
+      src="https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/balloon-red.svg"
+      alt="balloon"
+    /> -->
+    <!-- <span
         [hidden]="boomhide"
         [ngStyle]="{
           'width.px': wid,
           'height.px': wid,
+          'font-size.px': wid,
           'background-color': randomcolor
         }"
-      ></span>
-      <img
-        [hidden]="!boomhide"
-        width="250"
-        height="250"
-        alt="image"
-        src="../../../assets/boom.png"
-      />
-    </div>
+      ></span> -->
+    <img
+      [hidden]="!boomhide"
+      width="250"
+      height="250"
+      alt="image"
+      src="https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/balloon-pump.png"
+    />
+  </div>
 
   <div>
     <div [hidden]="btnshow" class="number">
@@ -33,7 +99,7 @@
       <button (click)="pump('10')">+10</button>
     </div>
     <div [hidden]="btnshow">
-      <button (click)="collect()" class="collect">
+      <button (click)="collect()" class="collect waves-effect">
         Collect
       </button>
     </div>

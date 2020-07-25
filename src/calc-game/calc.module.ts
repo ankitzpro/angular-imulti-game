@@ -12,6 +12,7 @@ import { TimerComponent } from './timer/timer.component';
 import { FinishComponent } from './finish/finish.component';
 import {ProgressBarModule} from "angular-progress-bar"
 import { NotifierModule } from "angular-notifier";
+import { Step1Component } from './step1/step1.component';
 @NgModule({
   declarations: [
     CalcComponent,
@@ -21,7 +22,8 @@ import { NotifierModule } from "angular-notifier";
     LevelFourComponent,
     StartComponent,
     TimerComponent,
-    FinishComponent
+    FinishComponent,
+    Step1Component
   ],
   imports: [
     BrowserModule,

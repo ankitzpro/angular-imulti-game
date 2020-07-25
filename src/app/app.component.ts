@@ -1,18 +1,14 @@
-import { Component,Input,OnInit } from '@angular/core';
-import { AppService } from './app.service';
-import { Router} from '@angular/router'
+import { Component } from '@angular/core';
+//import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   constructor(
-    private service: AppService, public routers:Router
+    //private firestore: AngularFirestore
     ){}
   title = 'oneclick';
-  ngOnInit() {
-  this.routers.navigate(['']);
-    }
 }

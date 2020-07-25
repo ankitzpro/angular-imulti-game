@@ -1,17 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { CalcService } from '../calc.service'
+import { CalcService } from '../calc.service';
 @Component({
   selector: 'start',
   templateUrl: './start.component.html',
-  styleUrls: ['./start.component.scss']
+  styleUrls: ['./start.component.scss'],
 })
 export class StartComponent implements OnInit {
+  stepOne: boolean = false;
+  constructor(private service: CalcService) {}
 
-  constructor(private service:CalcService) { }
-
-  ngOnInit() {
+  ngOnInit() {}
+  submit() {
+    this.service.changeCompo('Timer');
   }
-  submit(){
-this.service.changeCompo('Level1');
+
+  onSubmit() {
+    this.stepOne = false;
+    // this.service.changeCompo('Timer');
+  }
+  goToFirstStep() {
+    this.stepOne = true;
   }
 }

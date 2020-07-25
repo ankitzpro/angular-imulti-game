@@ -21,7 +21,7 @@ this.countDown();
     this.intervalId = window.setInterval(() => {
       this.seconds -= 1;
       if (this.seconds === 0 ) {
-        if(this.service.level>=30){
+        if(this.service.level>=15){
           //this.routers.navigate(['/start'])
           this.service.changeCompo('Finish');
           clearInterval(this.intervalId);

@@ -88,6 +88,7 @@ export class GameComponent implements OnInit {
         if (_this.sum == ans) {
           _this.service.textMaker('You Win');
           _this.service.score++;
+          _this.service.totanswers.push(1);
         } else {
           _this.service.textMaker('You Lose');
         }

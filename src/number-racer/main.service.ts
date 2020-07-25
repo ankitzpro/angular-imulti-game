@@ -19,6 +19,7 @@ rangeend=25;
 noofdigits=6;
 secperlevel=2000;
 secperdigit=300;
+totanswers=[];
 textMaker(text:string){
   this.anstext=text;
 
@@ -29,7 +30,7 @@ textMaker(text:string){
 
 levelUpdate(){
   this.level++;
-  if(this.level>=1 && this.level<4){
+  if( this.totanswers.length<4){
     this.rangestart=2;
     this.rangeend=25;
     this.noofdigits=6;
@@ -40,21 +41,21 @@ levelUpdate(){
 
 
   }
-  else if(this.level>=4 && this.level<7){
+  else if(this.totanswers.length>=4 && this.totanswers.length<8){
  this.rangestart=20;
     this.rangeend=50;
     this.noofdigits=6;
     this.secperdigit=500;
     this.secperlevel=3200;
   }
-  else if(this.level>=7 && this.level<9){
+  else if(this.totanswers.length>=8 && this.totanswers.length<12){
      this.rangestart=50;
     this.rangeend=100;
     this.noofdigits=7;
     this.secperdigit=300;
     this.secperlevel=2000;
   }
-  else if(this.level>=9 && this.level<=10){
+  else if(this.totanswers.length>=12 && this.totanswers.length<=16){
  this.rangestart=100;
     this.rangeend=999;
     this.noofdigits=7;
@@ -62,7 +63,11 @@ levelUpdate(){
     this.secperlevel=2000;
   }
   else{
-    
+      this.rangestart=100;
+         this.rangeend=999;
+         this.noofdigits=7;
+         this.secperdigit=300;
+         this.secperlevel=2000;
   }
 }
   sendValues(){

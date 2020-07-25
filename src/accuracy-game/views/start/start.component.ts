@@ -1,24 +1,19 @@
-
-
 import { Component, OnInit } from '@angular/core';
 import { AccuracyService } from '../../accuracy.service';
-
-
 
 @Component({
   selector: 'start',
   templateUrl: './start.component.html',
-  styleUrls: [ './start.component.scss' ],
+  styleUrls: ['./start.component.scss'],
 })
 export class StartComponent implements OnInit {
-
+  stepOne: boolean = false;
   constructor(
-    public service:AccuracyService,
-   // public formBuilder: FormBuilder
-   ){
-  }
+    public service: AccuracyService
+  ) // public formBuilder: FormBuilder
+  {}
   //public myForm : FormGroup;
-    submitted = false;
+  submitted = false;
 
   ngOnInit() {
     //this.createForm();
@@ -31,18 +26,22 @@ export class StartComponent implements OnInit {
   //  });
   //  }
 
-   onSubmit(){
-    this.submitted = true;
-    // if (this.myForm.invalid) {
-    //       return;
-    //     }
+  // onSubmit() {
+  //   this.submitted = true;
+  //   // if (this.myForm.invalid) {
+  //   //       return;
+  //   //     }
 
-    //     var formData=this.myForm.value;
-        //this.routers.navigate(['/game'],{ skipLocationChange: true });
+  //   //     var formData=this.myForm.value;
+  //   //this.routers.navigate(['/game'],{ skipLocationChange: true });
 
-         this.service.changeCompo('Game');
-   }
-
+  //   this.service.changeCompo('Game');
+  // }
+  onSubmit() {
+    this.stepOne = false;
+    this.service.changeCompo('Timer');
+  }
+  goToFirstStep() {
+    this.stepOne = true;
+  }
 }
-
-

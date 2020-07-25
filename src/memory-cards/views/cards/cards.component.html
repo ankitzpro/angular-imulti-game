@@ -1,12 +1,18 @@
 <div class="pdng">
   <div class="label">
-    <div>
-      15<span>/{{ level}}</span>
-    </div>
+    <!-- <div>
+      11<span>/{{ level}}</span>
+      <p>
+        Level
+      </p>
+    </div> -->
     <div class="wait" [hidden]="!showwait">Wait</div>
     <div class="start" [hidden]="!showstart">Start</div>
     <div class="time" [hidden]="!showtimer">
-      {{ seconds.toFixed(1) }}
+      {{ seconds.toFixed(0) }}
+      <p>
+        Time
+      </p>
     </div>
   </div>
 

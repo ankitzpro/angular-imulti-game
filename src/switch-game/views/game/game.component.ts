@@ -13,7 +13,7 @@ export class GameComponent {
   {}
 
   eventText = '';
-  level = this.service.level + 1;
+  level = this.service.level;
 
   arr = ['fa-play', 'fa-square', 'fa-circle', 'fa-plus'];
   //ansarr=[];
@@ -81,7 +81,9 @@ export class GameComponent {
     this.service.clearTimer();
 
     if (ans == this.randpos) {
-      this.service.scoreCalc('Level Passed \n Correct Answer'); //this.routers.navigate(['/timer'],{ skipLocationChange: true });
+      this.service.scoreCalc('Level Passed \n Correct Answer'); 
+      this.service.score++;
+      this.service.totanswers.push(1);
       this.service.changeCompo('Timer');
     } else {
       this.service.scoreCalc('Level Lost \n Wrong Answer'); //this.routers.navigate(['/timer'],{ skipLocationChange: true });
@@ -92,7 +94,7 @@ export class GameComponent {
 
   private countDown(): void {
     this.service.intervalId = window.setInterval(() => {
-      this.seconds -= 0.1;
+      this.seconds -= 1;
       this.service.seconds = this.seconds;
       if (this.seconds.toFixed(1) == '0.0') {
         this.service.anstext = "You didn't attempted";
@@ -100,7 +102,7 @@ export class GameComponent {
 
         this.service.changeCompo('Timer');
       }
-      }, 100);
-    // }, 100);
+      //}, 100000000000);
+     }, 1000);
   }
 }

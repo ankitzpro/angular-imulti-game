@@ -18,7 +18,7 @@ export class LevelTwoComponent implements OnInit {
   score:number;
   c_score:any;
   intervalId: any = 0;
-  seconds: number = 15;
+  seconds: number = 10;
   showtimer=false;
   l2_score:number= 0;
   countDownId:any;
@@ -27,7 +27,7 @@ export class LevelTwoComponent implements OnInit {
   max_question_no =5;
   operator1:any='';
   operator2:any='';
-  showQuestion:boolean=false;
+  showQuestion:boolean=true;
   timmer:number=5;
   notifier: NotifierService;
   constructor(
@@ -36,7 +36,7 @@ export class LevelTwoComponent implements OnInit {
       this.notifier = notifierService;
     }
   ngOnInit() {
-    this.showTimmer();
+    this.getRhs();
     // this.clearTimer();
     // this.getRhs();
     // this.countDown();
@@ -65,16 +65,16 @@ export class LevelTwoComponent implements OnInit {
     this.l2_score = this.service.l2_score;
     this.clearTimer();
     this.countDown();
-    this.clearCountDown();
-    if(this.question_no <= this.max_question_no){
+    //this.clearCountDown();
+    //if(this.question_no <= this.max_question_no){
       this.clearTimer();
       this.l2_countDown();
-      this.clearCountDown();
-    }else{
-      this.clearCountDown();
-      //this.service.showAlert('Level Two Score '+ this.service.l2_score  + ' Click OK For Next Level');
-      this.service.changeCompo('Level3');
-    }
+      //this.clearCountDown();
+    // }else{
+    //   this.clearCountDown();
+    //   this.service.showAlert('Level Two Score '+ this.service.l2_score  + ' Click OK For Next Level');
+    //   this.service.changeCompo('Level3');
+    // }
     this.removeChar(1);
   }
   removeChar(rmVal){
@@ -85,12 +85,13 @@ export class LevelTwoComponent implements OnInit {
   l2_countDown() {
     this.showtimer=true;
     this.intervalId = setTimeout(() => {
-            //this.service.showAlert('Sorry! Timeout Click OK For Next Qustion');
             this.question_no++;
-            this.getRhs();
+            this.clearTimer();
+            this.clearCountDown();
+            this.service.changeCompo('Timer');
             this.seconds=10;
         }, 10000);
-        this.clearCountDown();
+        //this.clearCountDown();
       }
       clearTimer(){clearTimeout(this.intervalId);}
 
@@ -107,6 +108,8 @@ export class LevelTwoComponent implements OnInit {
       clearCountDown(){clearTimeout(this.countDownId);}
 
       result(){
+        this.question_no++;
+        this.service.question++;
         switch(this.operator1) {
             case "*":
                 this.lhs = this.firstInput * this.secondInput + this.thirdInput;
@@ -116,20 +119,21 @@ export class LevelTwoComponent implements OnInit {
               break;
         }
           if(this.lhs == this.rhs){
-            this.notifier.notify("success","Question "+this.question_no + " is Correct Answer");
-                this.question_no++;
-                this.service.l2_score++;
+            this.service.l2_score++;
+                this.service.totanswers.push(1);
                 this.l2_score = this.service.l2_score;
                 // this.service.showAlert("Correct Answer! Click OK For Next Question");
                 this.removeChar(1);
-                this.getRhs();
-              }else{
-            this.notifier.notify("error","Question "+this.question_no + " is Incorrect Answer!");
-                this.question_no++;
-                // this.service.showAlert("Incorrect Answer! Click OK For Next Question");
-                this.removeChar(1);
-                this.getRhs();
+               // this.getRhs();
               }
+              this.clearTimer();
+              this.clearCountDown();
+             //else{ 
+                // this.service.showAlert("Incorrect Answer! Click OK For Next Question");
+                //this.removeChar(1);
+                //this.getRhs();
+             // }
+             this.service.changeCompo('Timer');
       }
       getOperator(){
         var operator = [{sign: "*",},{sign: "+"}];

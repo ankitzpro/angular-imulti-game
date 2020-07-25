@@ -19,7 +19,7 @@ export class LevelThreeComponent implements OnInit {
   intervalId:any;
   score:number=0;
   questionOn=1;
-  showQuestion:boolean=false;
+  showQuestion:boolean=true;
   noOfQuestions=5;
   startCountDown:number=10;
   seconds:number=20;
@@ -32,40 +32,9 @@ export class LevelThreeComponent implements OnInit {
     notifierService: NotifierService) {
       this.notifier = notifierService;
     }
-    Stage3Que =[
-      {question:"There is neither a black circle nor a green square",shape1:'square',shape2:'circle',color1:'black',color2:'green',answer:'TRUE'},
-      {question:"There is either a brown square or a black square",shape1:'circle',shape2:'circle',color1:'brown',color2:'purple',answer:'FALSE'},
-      {question:"There is atleast one black square",shape1:'circle',shape2:'square',color1:'black',color2:'blue',answer:'FALSE'},
-      {question:"There is neither a brown square nor an orange circle",shape1:'circle',shape2:'square',color1:'brown',color2:'orange',answer:'TRUE'},
-      {question:"There is either a green circle or a green square",shape1:'circle',shape2:'square',color1:'brown',color2:'black',answer:'FALSE'},
-      {question:"There is a blue square but not a brown circle",shape1:'square',shape2:'circle',color1:'blue',color2:'brown',answer:'FALSE'},
-      {question:"There is a purple circle but not a purple square",shape1:'square',shape2:'square',color1:'black',color2:'purple',answer:'FALSE'},
-      {question:"There is a yellow circle and a red square",shape1:'square',shape2:'circle',color1:'yello',color2:'red',answer:'FALSE'},
-      {question:"There is either a yellow square or a yellow circle",shape1:'square',shape2:'circle',color1:'yellow',color2:'yellow',answer:'FALSE'},
-      {question:"There is a yellow circle but not a red square",shape1:'square',shape2:'square',color1:'yellow',color2:'red',answer:'FALSE'},
-      {question:"There is neither a brown square nor a purple circle",shape1:'circle',shape2:'square',color1:'brown',color2:'purple',answer:'TRUE'},
-      {question:"There is either a green square or a red square",shape1:'circle',shape2:'square',color1:'green',color2:'red',answer:'TRUE'},
-      {question:"There is a black square but not a green circle",shape1:'square',shape2:'square',color1:'black',color2:'green',answer:'TRUE'},
-      {question:"There is no green circle",shape1:'circle',shape2:'square',color1:'brown',color2:'green',answer:'TRUE'},
-      {question:"There is atmost one black circle",shape1:'square',shape2:'circle',color1:'black',color2:'black',answer:'TRUE'},
-      {question:"There is atleast one green square",shape1:'square',shape2:'square',color1:'green',color2:'green',answer:'TRUE'},
-      {question:"There is either a black circle or a green circle",shape1:'square',shape2:'square',color1:'green',color2:'black',answer:'FALSE'},
-      {question:"There is neither a black square nor a black circle",shape1:'square',shape2:'circle',color1:'black',color2:'black',answer:'FALSE'},
-      {question:"There is a red circle but not a green square",shape1:'circle',shape2:'square',color1:'red',color2:'green',answer:'FALSE'},
-      {question:"There is atmost one brown square",shape1:'square',shape2:'circle',color1:'yellow',color2:'brown',answer:'TRUE'},
-      {question:"There are atleast two blue circle",shape1:'circle',shape2:'square',color1:'blue',color2:'blue',answer:'FALSE'},
-      {question:"There is neither a black circle nor a black square",shape1:'circle',shape2:'square',color1:'blue',color2:'green',answer:'TRUE'},
-      {question:"There is either a grey circle or a red square",shape1:'circle',shape2:'square',color1:'grey',color2:'red',answer:'FALSE'},
-      {question:"There is neither a blue square nor a yellow square",shape1:'circle',shape2:'circle',color1:'blue',color2:'yellow',answer:'TRUE'},
-      {question:"There is atleast one black circle",shape1:'square',shape2:'circle',color1:'black',color2:'grey',answer:'FALSE'},
-      {question:"There are atmost two green circle",shape1:'square',shape2:'circle',color1:'green',color2:'green',answer:'TRUE'},
-      {question:"There is a grey square but not a grey circle",shape1:'square',shape2:'circle',color1:'grey',color2:'grey',answer:'FALSE'},
-      {question:"There is no black square",shape1:'circle',shape2:'square',color1:'black',color2:'green',answer:'TRUE'},
-      {question:"There are atleast two green square",shape1:'square',shape2:'circle',color1:'green',color2:'green',answer:'FALSE'},
-      {question:"There is a grey circle but not a black circle",shape1:'circle',shape2:'square',color1:'grey',color2:'black',answer:'TRUE'},
-    ];
+    
   ngOnInit() {
-    this.countDown();
+    this.getQuestion();
   }
   ngOnDestroy() {
     this.clearTimer();
@@ -75,45 +44,50 @@ export class LevelThreeComponent implements OnInit {
   }
   getQuestion(){
     this.clearTimer();
-    if(this.questionOn <= this.noOfQuestions){
-      var random  = Math.floor(Math.random()*this.Stage3Que.length);
-      this.question=this.Stage3Que[random].question;
-      this.shape1=this.Stage3Que[random].shape1;
-      this.color1=this.Stage3Que[random].color1;
-      this.shape2=this.Stage3Que[random].shape2;
-      this.color2=this.Stage3Que[random].color2;
-      this.answer=this.Stage3Que[random].answer;
+    //if(this.questionOn <= this.noOfQuestions){
+      var random  = Math.floor(Math.random()*this.service.Stage3Que.length);
+      this.question=this.service.Stage3Que[random].question;
+      this.shape1=this.service.Stage3Que[random].shape1;
+      this.color1=this.service.Stage3Que[random].color1;
+      this.shape2=this.service.Stage3Que[random].shape2;
+      this.color2=this.service.Stage3Que[random].color2;
+      this.answer=this.service.Stage3Que[random].answer;
       this.l3_countDown();
       this.timmer();
-    }else{
-      this.service.score = this.service.l1_score+this.service.l2_score+this.service.l3_score;
-     // this.service.showAlert("Your Total Score Is "+ this.service.score);
-      this.service.changeCompo('Finish');
-    }
+    // }else{
+    //   this.service.score = this.service.l1_score+this.service.l2_score+this.service.l3_score;
+    //   this.service.showAlert("Your Total Score Is "+ this.service.score);
+    //   this.service.changeCompo('Finish');
+    // }
   }
   result(ans: any){
+    this.questionOn++
+    this.service.question++;
     this.userAnswer = ans;
     this.myfunction();
     // this.service.customConsole(this.userAnswer +"=="+ this.answer);
       if( this.userAnswer == this.answer){
         this.notifier.notify("success","Question "+this.questionOn + " is Correct Answer");
-        this.questionOn++
         this.service.l3_score++;
+        this.service.totanswers.push(1);
         this.score = this.service.l3_score;
         this.getQuestion();
-      }else{
-        this.notifier.notify("error","Question "+this.questionOn + " is Incorrect Answer!");
-          this.questionOn++
-          this.getQuestion();
       }
+      // }else{
+      //   this.notifier.notify("error","Question "+this.questionOn + " is Incorrect Answer!");
+      //     this.questionOn++
+      //     this.getQuestion();
+      // }
+        this.service.changeCompo('Timer');
   }
 
   l3_countDown() {
     this.intervalId = setTimeout(() => {
       this.startCountDown -= 0.1;
+      this.service.question++;
             this.questionOn++;
             this.myfunction();
-            this.getQuestion();
+            this.service.changeCompo('Timer');
             this.seconds=20;
         // }, 5000000000000);
         }, 5000);

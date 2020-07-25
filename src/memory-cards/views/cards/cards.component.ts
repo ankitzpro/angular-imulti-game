@@ -19,20 +19,21 @@ export class CardsComponent implements OnInit {
   click = false;
   clicked = 0;
   i = 3;
-  seconds = 20;
+  seconds = this.service.seconds;
   intervalId: number = 0;
   showstart = false;
   showwait = true;
   showtimer = false;
   @ViewChildren('crd') components: QueryList<ElementRef>;
   ngOnInit() {
-    if (this.service.level < 3) {
-      this.i = 3;
-    } else if (this.service.level < 6) {
-      this.i = 5;
-    } else {
-      this.i = 7;
-    }
+    // if (this.service.level < 3) {
+    //   this.i = 3;
+    // } else if (this.service.level < 6) {
+    //   this.i = 5;
+    // } else {
+    //   this.i = 7;
+    // }
+    this.i=this.service.noofcards;
     this.randomArray(this.i);
   }
 
@@ -84,17 +85,18 @@ export class CardsComponent implements OnInit {
           [index].nativeElement.classList.add('btn-secondary');
 
       } else {
-        this.clearTimer();
+        this.service.clearTimer();
         this.service.textMaker('Wrong box selected');
-        this.clearTimer();
+        this.service.clearTimer();
         //this.routers.navigate(['/timer'],{ skipLocationChange: true });
         this.service.changeCompo('Timer');
       }
       this.clicked++;
       if (this.clicked == this.i) {
         this.service.score++;
+        this.service.totanswers.push(1);
         this.service.textMaker('Level Completed');
-        this.clearTimer();
+        this.service.clearTimer();
         //this.routers.navigate(['/timer'],{ skipLocationChange: true });
         this.service.changeCompo('Timer');
       }
@@ -103,11 +105,12 @@ export class CardsComponent implements OnInit {
   private countDown(): void {
     this.showstart = false;
     this.showtimer = true;
-    this.intervalId = window.setInterval(() => {
+    this.service.intervalId = window.setInterval(() => {
       this.seconds -= 0.1;
+      this.service.seconds=this.seconds;
       if (this.seconds.toFixed(1) === '0.1') {
         this.service.textMaker("You didn't attempted");
-        this.clearTimer();
+        this.service.clearTimer();
         //this.routers.navigate(['/timer'])
         this.service.changeCompo('Timer');
       }
@@ -122,8 +125,5 @@ export class CardsComponent implements OnInit {
       this.countDown();
     // }, 10000000000);
     }, 1000);
-  }
-  clearTimer(): void {
-    clearInterval(this.intervalId);
   }
 }

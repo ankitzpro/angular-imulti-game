@@ -1,34 +1,3 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
-
-.main_sect {
-  width: 860px;
-  margin: auto;
-  position: relative;
-  z-index: 9;
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-  }
-  &:before {
-    top: 8px;
-    left: -40px;
-    width: 77px;
-    height: 86px;
-    background-image: url(https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/vector10.svg);
-  }
-  &:after {
-    bottom: -25px;
-    right: -30px;
-    transform: rotate(35deg);
-    width: 100px;
-    height: 111px;
-    background-image: url(https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/vector1.svg);
-  }
-  @media (max-width: 600px) {
-    width: 100%;
-  }
-}

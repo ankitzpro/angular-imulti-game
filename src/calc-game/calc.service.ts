@@ -10,6 +10,9 @@ export class CalcService {
   l2_score=0;
   l3_score=0;
   l4_score=0;
+  question=0;
+  timersec=5;
+  totanswers=[];
   score=this.l1_score + this.l2_score + this.l3_score;
   compoShowValue='Start';
   private compoShow: BehaviorSubject<string> = new BehaviorSubject<string>(this.compoShowValue);

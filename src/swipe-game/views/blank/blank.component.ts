@@ -24,7 +24,6 @@ export class BlankComponent implements OnInit {
 
         //this.routers.navigate(['/one'],{ skipLocationChange: true });
         this.serv.compoChange('One');
-        this.serv.pageno=1;
    }
 
 }

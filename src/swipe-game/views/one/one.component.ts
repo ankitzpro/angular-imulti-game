@@ -12,6 +12,11 @@ export class OneComponent implements OnInit {
 text:String;
   ngOnInit() {
 this.text=this.serv.text;
+this.serv.pageno=1;
+  }
+
+  next(){
+    this.serv.compoChange('Two');
   }
 
 }

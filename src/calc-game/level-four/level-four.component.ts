@@ -18,7 +18,7 @@ export class LevelFourComponent implements OnInit {
   score:number;
   c_score:any;
   intervalId: any = 0;
-  seconds: number = 15;
+  seconds: number = 10;
   showtimer=false;
   l4_score:number= 0;
   countDownId:any;
@@ -27,7 +27,7 @@ export class LevelFourComponent implements OnInit {
   max_question_no =5;
   operator1:any='';
   operator2:any='';
-  showQuestion:boolean=false;
+  showQuestion:boolean=true;
   timmer:number=5;
   notifier: NotifierService;
   constructor(
@@ -37,7 +37,7 @@ export class LevelFourComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.showTimmer();
+    this.getRhs();
     // this.clearTimer()
     // this.l4_score = this.service.l4_score;
     // this.getRhs();
@@ -80,15 +80,15 @@ export class LevelFourComponent implements OnInit {
     this.l4_score = this.service.l4_score;
     this.clearTimer();
     this.countDown();
-    this.clearCountDown();
-    if(this.question_no <= this.max_question_no){
+   // this.clearCountDown();
+    //if(this.question_no <= this.max_question_no){
       this.clearTimer();
       this.l4_countDown();
-      this.clearCountDown();
-    }else{
+    //  this.clearCountDown();
+   // }else{
       //this.service.showAlert('Your Final Score is '+ this.service.score);
-      this.service.changeCompo('Finish');
-    }
+      //this.service.changeCompo('Finish');
+    //}
     this.removeChar(1);
   }
   removeChar(rmVal){
@@ -99,12 +99,14 @@ export class LevelFourComponent implements OnInit {
   l4_countDown() {
     this.showtimer=true;
     this.intervalId = setTimeout(() => {
-            //this.service.showAlert('Sorry! Timeout Click OK For Next Qustion');
             this.question_no++;
-            this.getRhs();
+            this.service.question++;
+            this.clearTimer();
+            this.clearCountDown();
+            this.service.changeCompo('Timer');
             this.seconds=10;
         }, 10000);
-        this.clearCountDown();
+        //this.clearCountDown();
       }
       clearTimer(){clearTimeout(this.intervalId);}
 
@@ -120,6 +122,8 @@ export class LevelFourComponent implements OnInit {
       }
       clearCountDown(){clearTimeout(this.countDownId);}
       result(){
+        this.question_no++;
+        this.service.question++;
         switch(this.operator1) {
             case "-":
                 this.lhs = this.firstInput - this.secondInput / this.thirdInput;
@@ -136,20 +140,23 @@ export class LevelFourComponent implements OnInit {
         }
             if(this.lhs == this.rhs){ 
               this.notifier.notify("success","Question "+this.question_no + " is Correct Answer");
-                this.question_no++;
                 this.service.l4_score++;
+                this.service.totanswers.push(1);
                 this.l4_score = this.service.l4_score;
                 // this.service.showAlert("Correct Answer! Click OK For Next Question");
-                this.removeChar(1);
-                this.getRhs();
-              }else{
-                this.notifier.notify("error","Question "+this.question_no + " is Incorrect Answer!");
-                this.question_no++;
+                //this.removeChar(1);
+                //this.getRhs();
+              }
+              this.clearTimer();
+              this.clearCountDown();
+              //else{
+                //this.notifier.notify("error","Question "+this.question_no + " is Incorrect Answer!");
                 // this.service.showAlert("Incorrect Answer! Click OK For Next Question");
                 this.removeChar(1);
-                this.getRhs();
-              }
-          this.service.score = this.service.l1_score + this.service.l2_score + this.service.l3_score + this.service.l4_score;
+               // this.getRhs();
+             // }
+          
+             this.service.changeCompo('Timer');
       }
       getOperator(){
         var operator = [{sign: "-"},{sign: "*"},{sign: "/"},{sign:"+"}];

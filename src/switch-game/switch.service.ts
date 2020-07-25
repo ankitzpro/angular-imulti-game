@@ -12,9 +12,9 @@ compoShowValue='Start';
 
     compoShow$: Observable<string> = this.compoShow.asObservable();
 anstext='';
-
+totanswers=[];
 intervalId: number = 0;
-seconds: number = 10;
+seconds: number = 12;
 score=0;
 
   clearTimer() { clearInterval(this.intervalId); }
@@ -25,6 +25,14 @@ score=0;
        if(this.anstext=='Level Passed \n Correct Answer'){
          this.score=this.score+this.seconds;
        }
+  }
+  levelupgrade(){
+    if(this.totanswers.length>1){
+      this.seconds=10;
+    }
+    else{
+      this.seconds=12;
+    }
   }
   changeCompo(comp:string){
     this.compoShowValue=comp;

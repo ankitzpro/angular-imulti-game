@@ -22,7 +22,7 @@ this.countDown();
     this.intervalId = window.setInterval(() => {
       this.seconds -= 1;
       if (this.seconds === 0 ) {
-        if(this.service.level>=10){
+        if(this.service.level>=16){
           this.service.changeCompo('Finish');
         }
         else{
@@ -30,6 +30,7 @@ this.countDown();
         this.service.changeCompo('Game');
       }
     }
+    // }, 100000000);
     }, 1000);
   }
 }

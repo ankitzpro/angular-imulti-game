@@ -1,5 +1,5 @@
 <section>
-  <div >
+  <div class="main_sect">
     <div class="bg_box">
       <!-- <notifier-container></notifier-container> -->
       <start *ngIf="composh == 'Start'"></start>
@@ -8,6 +8,7 @@
       <level-three *ngIf="composh == 'Level3'"></level-three>
       <level-four *ngIf="composh == 'Level4'"></level-four>
       <finish *ngIf="composh == 'Finish'"></finish>
+      <timer *ngIf="composh == 'Timer'"></timer>
     </div>
   </div>
 </section>

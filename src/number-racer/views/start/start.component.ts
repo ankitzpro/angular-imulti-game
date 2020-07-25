@@ -13,6 +13,8 @@ import { MainService } from '../../main.service'
 })
 export class StartComponent implements OnInit {
 
+  stepOne:boolean=false;
+  stepTwo:boolean=false;
   constructor(private service: MainService){
   }
     submitted = false;
@@ -23,9 +25,17 @@ export class StartComponent implements OnInit {
 
 
    onSubmit(){
+      this.stepOne=false;
+      this.stepTwo=false;
        // this.routers.navigate(['/game'],{ skipLocationChange: true });
        this.service.changeCompo('Timer');
-       this.service.levelUpdate();
+   }
+   goToFirstStep(){
+    this.stepOne=true;
+   }
+   goToSecondStep(){
+    this.stepOne=false;
+    this.stepTwo=true;
    }
 
 }

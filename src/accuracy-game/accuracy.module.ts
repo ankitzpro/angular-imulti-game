@@ -10,6 +10,7 @@ import { TimerComponent } from './views/timer/timer.component';
 import { FinishComponent } from './views/finish/finish.component';
 import {  NumberDirective } from '../numonly.directive';
 import { NotifierModule } from "angular-notifier";
+import { Step1Component } from './views/step1/step1.component';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { NotifierModule } from "angular-notifier";
   declarations: [ AccuracyComponent ,
     StartComponent,
     GameComponent
-    ,TimerComponent,NumberDirective,FinishComponent],
+    ,TimerComponent,NumberDirective,FinishComponent, Step1Component],
   bootstrap:    [ AccuracyComponent ],
   exports:      [AccuracyComponent]
 })

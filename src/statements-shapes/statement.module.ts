@@ -8,7 +8,9 @@ import { LevelOneComponent } from './level-one/level-one.component';
 import { LevelTwoComponent } from './level-two/level-two.component';
 import { LevelThreeComponent } from './level-three/level-three.component';
 import { FinishComponent } from './finish/finish.component';
+import { TimerComponent } from './timer/timer.component';
 import { NotifierModule } from "angular-notifier";
+import { Step1Component } from './step1/step1.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { NotifierModule } from "angular-notifier";
     LevelOneComponent,
     LevelTwoComponent,
     FinishComponent,
-    LevelThreeComponent
+    TimerComponent,
+    LevelThreeComponent,
+    Step1Component
   ],
   imports: [
     BrowserModule,

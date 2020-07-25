@@ -1,64 +1,40 @@
-<div class="d-flex">
+<div class="d-flex" *ngIf="!stepOne">
   <div>
-    <h1>Digit Game</h1>
+    <h1>Digit Challenge</h1>
     <p>Press the <strong>“Right key”</strong> to continue</p>
   </div>
 
   <div class="icon">
     <img
-      alt="Digit Game"
+      alt="Digit Challenge"
       src="https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/number-game.svg"
     />
   </div>
 
   <div>
-    <button (click)="submit()">
+    <button class="waves-effect" (click)="goToFirstStep()">
       Start <i class="fa fa-long-arrow-right"></i>
     </button>
   </div>
 </div>
 
-<!-- <div class="d-flex points">
-  <div>
-    <h3>Please read all points carefully.</h3>
-    <ul>
-      <li>There are total <strong>16 Questions</strong></li>
-      <li>There are total <strong>4 Levels</strong></li>
-      <li>Each level have <strong>4 Questions</strong></li>
-      <li>Don’t Refresh Page</li>
-      <li>You have only <strong>10 Seconds/Question</strong></li>
-    </ul>
+
+<!-- STEP1 -->
+<div class="d-flex" *ngIf="stepOne">
+  <p class="cptn">
+    Choose the numbers and complete<br> the given equation to get the<br> desired result.
+  </p>
+
+  <div class="icon">
+    <img
+      alt="Digit Challenge"
+      src="https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-images/number-game.svg"
+    />
   </div>
 
-  <div class="center-align">
-    <button (click)="submit()">
+  <div>
+    <button class="waves-effect" (click)="submit()">
       Next <i class="fa fa-long-arrow-right"></i>
     </button>
   </div>
-</div> -->
-
-
-
-
-<!-- OLD DESIGN -->
-<!-- <body>
-  <div class="container">
-    <div class="jumbotron">
-      <h1 style="text-align: center;">Welcome</h1>
-      <h2 style="text-align: center;">To Number Game</h2>
-    </div>
-    <h2 style="text-align: center;">Plase Read All Points Carefully</h2>
-    <div>
-      <ul>
-        <li><h3>There Are Total 16 Questions</h3></li>
-        <li><h3>There Are Total 4 Level</h3></li>
-        <li><h3>Each Level have 4 Questions</h3></li>
-        <li><h3>Don't Refresh Page</h3></li>
-        <li><h3>You Have Only 10 Seconds/Question</h3></li>
-      </ul>
-    </div>
-    <button class="btn-primary btn-lg" type="button" (click)="submit()">
-      Start »
-    </button>
-  </div>
-</body> -->
+</div>

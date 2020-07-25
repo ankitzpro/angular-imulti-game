@@ -11,6 +11,7 @@ import { StartComponent } from './views/start/start.component';
 import { CardsComponent } from './views/cards/cards.component';
 import { TimerComponent } from './views/timer/timer.component';
 import { FinishComponent } from './views/finish/finish.component';
+import { Step1Component } from './views/step1/step1.component';
 
 
 
@@ -23,7 +24,7 @@ import { FinishComponent } from './views/finish/finish.component';
   declarations: [ MemcardsComponent , 
     StartComponent,
     CardsComponent
-    ,TimerComponent,FinishComponent],
+    ,TimerComponent,FinishComponent, Step1Component],
   bootstrap:    [ MemcardsComponent ],
   exports:      [ MemcardsComponent ]
   

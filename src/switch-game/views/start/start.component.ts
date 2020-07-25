@@ -1,24 +1,19 @@
-
-
 import { Component, OnInit } from '@angular/core';
 import { SwitchService } from '../../switch.service';
-
-
 
 @Component({
   selector: 'start',
   templateUrl: './start.component.html',
-  styleUrls: [ './start.component.scss' ],
+  styleUrls: ['./start.component.scss'],
 })
 export class StartComponent implements OnInit {
+  stepOne: boolean = false;
 
   constructor(
-    public service:SwitchService,
-   // public formBuilder: FormBuilder
-   ){
-  }
+    public service: SwitchService // public formBuilder: FormBuilder
+  ) {}
   //public myForm : FormGroup;
-    submitted = false;
+  submitted = false;
 
   ngOnInit() {
     //this.createForm();
@@ -31,12 +26,17 @@ export class StartComponent implements OnInit {
   //  });
   //  }
 
-   onSubmit(){
-    this.submitted = true;
-    
-         this.service.changeCompo('Timer');
-   }
+  // onSubmit() {
+  //   this.submitted = true;
 
+  //   this.service.changeCompo('Timer');
+  // }
+
+  onSubmit() {
+    this.stepOne = false;
+    this.service.changeCompo('Timer');
+  }
+  goToFirstStep() {
+    this.stepOne = true;
+  }
 }
-
-

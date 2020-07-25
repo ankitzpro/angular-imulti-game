@@ -7,12 +7,27 @@ import { CardService } from '../../card.service';
   styleUrls: ['./start.component.scss'],
 })
 export class StartComponent implements OnInit {
+  stepOne: boolean = false;
+
   constructor(private service: CardService) {}
+
+  // submitted = false;
 
   ngOnInit() {}
 
+  // onSubmit() {
+  //   this.service.anstext =
+  //     'Memorize the Flashing Squares then Recreates the same when the countdown starts';
+  //   this.service.changeCompo('Timer');
+  // }
+
   onSubmit() {
-    this.service.anstext="Memorize the Flashing Squares then Recreates the same when the countdown starts";
+    this.stepOne = false;
+    this.service.anstext =
+      'Memorize the Flashing Squares then Recreates the same when the countdown starts';
     this.service.changeCompo('Timer');
+  }
+  goToFirstStep() {
+    this.stepOne = true;
   }
 }

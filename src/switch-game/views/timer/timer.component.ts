@@ -24,10 +24,10 @@ export class TimerComponent implements OnInit {
     this.intervalId = window.setInterval(() => {
       this.seconds -= 1;
       if (this.seconds === 0) {
-        if (this.service.level >= 10) {
+        if (this.service.level >= 4) {
           this.service.changeCompo('Finish');
         } else {
-          this.service.seconds = 10;
+          this.service.levelupgrade();
           this.service.level++;
           this.service.changeCompo('Game');
         }

@@ -18,7 +18,7 @@ export class LevelOneComponent implements OnInit {
   score:number;
   c_score:any;
   intervalId: any = 0;
-  seconds: number = 15;
+  seconds: number = 10;
   showtimer=false;
   l1_score:number= 0;
   countDownId:any;
@@ -27,7 +27,7 @@ export class LevelOneComponent implements OnInit {
   max_question_no =5;
   operator1:any='';
   operator2:any='';
-  showQuestion:boolean=false;
+  showQuestion:boolean=true;
   timmer:number=5;
   notifier: NotifierService;
   constructor(
@@ -37,7 +37,7 @@ export class LevelOneComponent implements OnInit {
               }
 
   ngOnInit() {
-    this.showTimmer();
+    this.getRhs();
     // this.clearTimer();
     // this.getRhs();
     // this.l1_score = this.service.l1_score;
@@ -75,16 +75,16 @@ export class LevelOneComponent implements OnInit {
     this.l1_score = this.service.l1_score;
     this.clearTimer();
     this.countDown();
-    this.clearCountDown();
-    if(this.question_no <= this.max_question_no){
+    //this.clearCountDown();
+    //if(this.question_no <= this.max_question_no){
       this.clearTimer();
       this.l1_countDown();
-      this.clearCountDown();
-    }else{
-      this.clearCountDown();
-      //this.service.showAlert('Level One Score '+ this.service.l1_score  + ' Click OK For Next Level');
-      this.service.changeCompo('Level2');
-    }
+      //this.clearCountDown();
+    // }else{
+    //   this.clearCountDown();
+    //   this.service.showAlert('Level One Score '+ this.service.l1_score  + ' Click OK For Next Level');
+    //   this.service.changeCompo('Level2');
+    // }
     this.removeChar(1);
   }
   removeChar(rmVal){
@@ -95,12 +95,15 @@ export class LevelOneComponent implements OnInit {
   l1_countDown() {
     this.showtimer=true;
     this.intervalId = setTimeout(() => {
-           // this.service.showAlert('Sorry! Timeout Click OK For Next Qustion');
+      this.service.question++
             this.question_no++;
-            this.getRhs();
+            this.service.changeCompo('Timer');
+            this.clearTimer();
+            this.clearCountDown();
             this.seconds=10;
+        // }, 100000000000000000);
         }, 10000);
-        this.clearCountDown();
+       //this.clearCountDown();
       }
       clearTimer(){clearTimeout(this.intervalId);}
 
@@ -117,6 +120,8 @@ export class LevelOneComponent implements OnInit {
       clearCountDown(){clearTimeout(this.countDownId);}
 
       result(){
+        this.service.question++;
+        this.question_no++;
           switch(this.operator1) {
             case "+":
                 this.lhs = this.firstInput + this.secondInput;
@@ -133,20 +138,21 @@ export class LevelOneComponent implements OnInit {
               break;
             }
           if(this.lhs == this.rhs){
-            this.notifier.notify("success","Question "+this.question_no + " is Correct Answer");
-                    this.question_no++;
+             this.question_no++;
                     this.service.l1_score++;
+                    this.service.totanswers.push(1);
                     this.l1_score = this.service.l1_score;
                     // this.service.showAlert("Correct Answer! Click OK For Next Question");
-                    this.removeChar(1);
-                    this.getRhs();
-          }else{
-            this.notifier.notify("error","Question "+this.question_no + " is Incorrect Answer!");
-            this.question_no++;
+                    // this.removeChar(1);
+                    // this.getRhs();
+          }
+          //else{
             // this.service.showAlert("Incorrect Answer! Click OK For Next Question");
             this.removeChar(1);
-            this.getRhs();
-          }
+            this.clearTimer();
+            this.clearCountDown();
+        //  }
+        this.service.changeCompo('Timer');
       }
       getOperator(){
         var operator = [{sign: "+",},{sign: "-"}];

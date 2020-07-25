@@ -47,7 +47,8 @@ this.countDown();
         this.serv.anstext="You didn't attempted";
         //this.routers.navigate(['/timer'],{ skipLocationChange: true })
         this.serv.compoChange('Timer');
-      } 
+      }
+    // }, 10000000000);
     }, 100);
   }
   startAnimation(state) {

@@ -13,8 +13,8 @@ import { NotifierService } from 'angular-notifier';
 
 export class GameComponent  {
   constructor(private service:AccuracyService, notifierService: NotifierService
-  
-  ) { 
+
+  ) {
     this.notifier = notifierService;}
 
 
@@ -27,12 +27,12 @@ export class GameComponent  {
   seconds:number=this.service.seconds;
   notifier: NotifierService;
   ngOnInit() {
-    
+
     this.progress=Math.floor(Math.random() * 90)+10;
     this.whitespace=100-this.progress;
     this.countDown();
 }
-  
+
 
 
 
@@ -59,13 +59,17 @@ export class GameComponent  {
 
         this.service.changeCompo('Timer');
       }
-    // }, 500);
-    }, 500000000000000);
+    }, 100);
+    // }, 500000000000000);
   }
 
   submit() {
     var diff = this.progress - this.numstring;
     this.service.scoreCalc(Math.abs(diff));
     this.service.changeCompo('Timer');
+  }
+
+  clear(){
+    this.numstring='';
   }
 }
