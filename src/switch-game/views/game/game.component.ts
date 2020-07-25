@@ -102,7 +102,7 @@ export class GameComponent {
 
         this.service.changeCompo('Timer');
       }
-      }, 100000000000);
-    //  }, 1000);
+    //  }, 100000000000);
+     }, 1000);
   }
 }
