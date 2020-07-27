@@ -45,7 +45,8 @@ export class AccuracyGameComponent  {
     console.log(this.numstring);
   }
   insertNum(a) {
-    this.numstring = a;
+   var b= (<HTMLInputElement>event.target).value;
+     this.numstring=b;
   }
 
   
