@@ -1,20 +1,69 @@
-<section>
-  <div class="main_sect">
-    <div class="bg_box">
-      <ng-container *ngIf="composh == 'Start'">
-        <start></start>
-      </ng-container>
-
-      <ng-container *ngIf="composh == 'Cards'">
-        <cards></cards>
-      </ng-container>
-
-      <ng-container *ngIf="composh == 'Timer'">
-        <timer></timer>
-      </ng-container>
-      <ng-container *ngIf="composh == 'Finish'">
-        <finish></finish>
-      </ng-container>
+<div class="disable-background" *ngIf="disable==true"><h1>Wait</h1></div>
+<div class="pdng">
+  <div class="label wait" [hidden]="!showwait">
+    <div>Observe</div>
+    <span>Please memorize the pattern.</span>
+    <!-- <div>Wait</div> -->
+  </div>
+  <div class="label start" [hidden]="!showstart">
+    <div>Start</div>
+    <span>Tap the boxes in the same sequence.</span>
+  </div>
+  <div class="label time" [hidden]="!showtimer">
+    Time remaining
+    <div>
+      {{ seconds.toFixed(0) }}
     </div>
   </div>
-</section>
+  <!-- <div class="label">
+    <div class="wait" [hidden]="!showwait">Wait</div>
+    <div class="start" [hidden]="!showstart">Start</div>
+    <div class="time" [hidden]="!showtimer">
+      {{ seconds.toFixed(0) }}
+      <p>
+        Time
+      </p>
+    </div>
+  </div> -->
+
+  <div class="number">
+    <ng-container *ngFor="let in of counter(35); let i = index">
+      <div
+        #crd
+        (click)="cardClick(i)"
+        class="btn"
+        data-toggle="tooltip"
+        data-placement="top"
+      >
+      <!-- 1 -->
+    </div>
+    </ng-container>
+  </div>
+</div>
+
+<!-- <div class="row">
+  <div class="col-sm-6">
+    <h4>Level {{ level + 1 }}</h4>
+  </div>
+  <div [hidden]="!showwait" class="col-sm-6"><h4>Wait</h4></div>
+  <div [hidden]="!showstart" class="col-sm-6"><h4>Start</h4></div>
+  <div [hidden]="!showtimer" class="col-sm-6 text-danger">
+    <i class="fa fa-clock-o" aria-hidden="true"></i>
+    <h3>{{ seconds.toFixed(1) }}</h3>
+  </div>
+</div>
+<hr />
+<div class="col-md-12">
+  <div class="row">
+    <div *ngFor="let in of counter(36); let i = index" style="width: 15%;">
+      <div
+        #crd
+        (click)="cardClick(i)"
+        style="width: 40px; height: 40px;"
+        class="btn btn-secondary m-2 p-2"
+        data-toggle="tooltip"
+        data-placement="top"
+      ></div>
+    </div>
+  </div>
+</div> -->

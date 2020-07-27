@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-//import { AngularFirestore } from '@angular/fire/firestore';
+import { SwipeGameService } from '../swipe-game/swipe-game.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor(
-    //private firestore: AngularFirestore
+    private swipeservice: SwipeGameService
     ){}
+    start=true;
   title = 'oneclick';
+ ngOnInit(){
+   this.swipeservice.readData();
+ }
+  startgame(){
+
+    this.start=false;
+  }
 }

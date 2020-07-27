@@ -1,0 +1,34 @@
+import { NgModule,Injectable } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import * as Hammer from 'hammerjs';
+import { CommonModule } from '@angular/common';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG,HammerModule } from '@angular/platform-browser';
+
+import { SwipeGameComponent } from './swipe-game.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+@Injectable()
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any> {
+    swipe: { direction: Hammer.DIRECTION_ALL },
+  };
+}
+
+@NgModule({
+  imports:      [  FormsModule, AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,AngularFirestoreModule,CommonModule
+    ,HammerModule
+  ],
+  declarations: [ SwipeGameComponent ],
+  bootstrap:    [ SwipeGameComponent ],
+  providers: [
+     {
+       provide: HAMMER_GESTURE_CONFIG,
+       useClass: MyHammerConfig,
+     },
+  ],
+  exports: [SwipeGameComponent],
+})
+export class SwipeGameModule {}

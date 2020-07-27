@@ -1,0 +1,26 @@
+
+  <section>
+    <div class="main_sect">
+      <h2 class="text-center" *ngIf="midtimer==false">
+      {{seconds.toFixed(1)}}
+    </h2>
+      <div class="row">
+      <div class="bg_box" *ngIf="(game1=='switch-game' || game2=='switch-game') && midtimer==false">
+          <switch-game></switch-game>
+        </div>
+        <div class="bg_box" *ngIf="(game1=='swipe-game' || game2=='swipe-game') && midtimer==false">
+          <swipe-game></swipe-game>
+        </div>
+        <div class="bg_box" *ngIf="(game1=='accuracy-game' || game2=='accuracy-game') && midtimer==false">
+          <accuracy-game></accuracy-game>
+        </div>
+        <div class="bg_box" *ngIf="(game1=='memory-cards' || game2=='memory-cards') && midtimer==false">
+          <memcards></memcards>
+        </div>
+        
+        <div class="bg_boxes" *ngIf="midtimer==true">
+          {{timerseconds}}
+        </div>
+      </div>
+      </div>
+    </section>
